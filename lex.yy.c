@@ -261,16 +261,9 @@ static void yy_flex_free YY_PROTO(( void * ));
 
 #define YY_AT_BOL() (yy_current_buffer->yy_at_bol)
 
-
-#define YY_USES_REJECT
-
-#define yywrap() 1
-#define YY_SKIP_YYWRAP
 typedef unsigned char YY_CHAR;
 FILE *yyin = (FILE *) 0, *yyout = (FILE *) 0;
 typedef int yy_state_type;
-extern int yylineno;
-int yylineno = 1;
 extern char *yytext;
 #define yytext_ptr yytext
 
@@ -291,20 +284,11 @@ static void yy_fatal_error YY_PROTO(( yyconst char msg[] ));
 
 #define YY_NUM_RULES 18
 #define YY_END_OF_BUFFER 19
-static yyconst short int yy_acclist[49] =
+static yyconst short int yy_accept[26] =
     {   0,
-       19,   17,   18,    1,   17,   18,    2,   18,   17,   18,
-        8,   17,   18,    9,   17,   18,   10,   17,   18,    6,
-       17,   18,    4,   17,   18,    5,   17,   18,    7,   17,
-       18,    3,   17,   18,   11,   17,   18,   17,   18,   13,
-       17,   18,    1,   16,    3,   12,   15,   14
-    } ;
-
-static yyconst short int yy_accept[27] =
-    {   0,
-        1,    1,    1,    2,    4,    7,    9,   11,   14,   17,
-       20,   23,   26,   29,   32,   35,   38,   40,   43,   44,
-       45,   46,   47,   48,   49,   49
+        0,    0,   19,   17,    2,    3,   17,    8,    9,   10,
+        6,    4,    5,    7,    1,   11,   17,   13,    2,   16,
+        1,   12,   15,   14,    0
     } ;
 
 static yyconst int yy_ec[256] =
@@ -375,16 +359,13 @@ static yyconst short int yy_chk[41] =
        25,   25,   25,   25,   25,   25,   25,   25,   25,   25
     } ;
 
-static yy_state_type yy_state_buf[YY_BUF_SIZE + 2], *yy_state_ptr;
-static char *yy_full_match;
-static int yy_lp;
-#define REJECT \
-{ \
-*yy_cp = yy_hold_char; /* undo effects of setting up yytext */ \
-yy_cp = yy_full_match; /* restore poss. backed-over text */ \
-++yy_lp; \
-goto find_rule; \
-}
+static yy_state_type yy_last_accepting_state;
+static char *yy_last_accepting_cpos;
+
+/* The intent behind this definition is that it'll catch
+ * any uses of REJECT which flex missed.
+ */
+#define REJECT reject_used_but_not_detected
 #define yymore() yymore_used_but_not_detected
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
@@ -392,12 +373,11 @@ char *yytext;
 #line 1 "calc.l"
 #define INITIAL 0
 #line 2 "calc.l"
-#include <stdio.h>
-#include <stdlib.h>
-#include "y.tab.h"
-
-extern int yyerror(const char *s);
-#line 401 "lex.yy.c"
+   /* Definition section */
+   #include <stdio.h>
+   #include <stdlib.h>
+   #include "y.tab.h"
+#line 381 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -548,10 +528,10 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 12 "calc.l"
+#line 8 "calc.l"
 
 
-#line 555 "lex.yy.c"
+#line 535 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -590,12 +570,15 @@ YY_DECL
 		yy_bp = yy_cp;
 
 		yy_current_state = yy_start;
-		yy_state_ptr = yy_state_buf;
-		*yy_state_ptr++ = yy_current_state;
 yy_match:
 		do
 			{
 			register YY_CHAR yy_c = yy_ec[YY_SC_TO_UI(*yy_cp)];
+			if ( yy_accept[yy_current_state] )
+				{
+				yy_last_accepting_state = yy_current_state;
+				yy_last_accepting_cpos = yy_cp;
+				}
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
@@ -603,141 +586,133 @@ yy_match:
 					yy_c = yy_meta[(unsigned int) yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
-			*yy_state_ptr++ = yy_current_state;
 			++yy_cp;
 			}
 		while ( yy_base[yy_current_state] != 25 );
 
 yy_find_action:
-		yy_current_state = *--yy_state_ptr;
-		yy_lp = yy_accept[yy_current_state];
-find_rule: /* we branch to this label when backing up */
-		for ( ; ; ) /* until we find what rule we matched */
-			{
-			if ( yy_lp && yy_lp < yy_accept[yy_current_state + 1] )
-				{
-				yy_act = yy_acclist[yy_lp];
-					{
-					yy_full_match = yy_cp;
-					break;
-					}
-				}
-			--yy_cp;
-			yy_current_state = *--yy_state_ptr;
-			yy_lp = yy_accept[yy_current_state];
+		yy_act = yy_accept[yy_current_state];
+		if ( yy_act == 0 )
+			{ /* have to back up */
+			yy_cp = yy_last_accepting_cpos;
+			yy_current_state = yy_last_accepting_state;
+			yy_act = yy_accept[yy_current_state];
 			}
 
 		YY_DO_BEFORE_ACTION;
 
-		if ( yy_act != YY_END_OF_BUFFER )
-			{
-			int yyl;
-			for ( yyl = 0; yyl < yyleng; ++yyl )
-				if ( yytext[yyl] == '\n' )
-					++yylineno;
-			}
 
 do_action:	/* This label is used only to access EOF actions. */
 
 
 		switch ( yy_act )
 	{ /* beginning of action switch */
+			case 0: /* must back up */
+			/* undo the effects of YY_DO_BEFORE_ACTION */
+			*yy_cp = yy_hold_char;
+			yy_cp = yy_last_accepting_cpos;
+			yy_current_state = yy_last_accepting_state;
+			goto yy_find_action;
+
 case 1:
 YY_RULE_SETUP
-#line 14 "calc.l"
-{ /* ignore whitespace */ }
+#line 10 "calc.l"
+{
+         yylval = atoi(yytext);
+         return NUMBER;
+       }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
 #line 15 "calc.l"
-{ return NEWLINE; }
+;
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
 #line 17 "calc.l"
-{ yylval.ival = atoi(yytext); return NUMBER; }
+return NEWLINE;
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
 #line 19 "calc.l"
-{ return PLUS; }
+return PLUS;
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
 #line 20 "calc.l"
-{ return MINUS; }
+return MINUS;
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
 #line 21 "calc.l"
-{ return TIMES; }
+return TIMES;
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
 #line 22 "calc.l"
-{ return DIVIDE; }
+return DIVIDE;
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
 #line 23 "calc.l"
-{ return MODULO; }
+return MODULO;
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 25 "calc.l"
-{ return LPAREN; }
+#line 24 "calc.l"
+return LPAREN;
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 26 "calc.l"
-{ return RPAREN; }
+#line 25 "calc.l"
+return RPAREN;
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 28 "calc.l"
-{ return LT; }
+#line 27 "calc.l"
+return LT;
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 29 "calc.l"
-{ return LE; }
+#line 28 "calc.l"
+return LE;
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 30 "calc.l"
-{ return GT; }
+#line 29 "calc.l"
+return GT;
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 31 "calc.l"
-{ return GE; }
+#line 30 "calc.l"
+return GE;
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 32 "calc.l"
-{ return EQ; }
+#line 31 "calc.l"
+return EQ;
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 33 "calc.l"
-{ return NE; }
+#line 32 "calc.l"
+return NE;
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 35 "calc.l"
-{ 
-                      fprintf(stderr, "Error: unknown character '%s'\n", yytext);
-                      return UNKNOWN;
-                    }
+#line 34 "calc.l"
+{
+    printf("Error: unknown character '%s'\n", yytext);
+    return UNKNOWN;
+  }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 40 "calc.l"
+#line 39 "calc.l"
 ECHO;
 	YY_BREAK
-#line 739 "lex.yy.c"
-			case YY_STATE_EOF(INITIAL):
-				yyterminate();
+#line 714 "lex.yy.c"
+case YY_STATE_EOF(INITIAL):
+	yyterminate();
 
 	case YY_END_OF_BUFFER:
 		{
@@ -1015,12 +990,15 @@ static yy_state_type yy_get_previous_state()
 	register char *yy_cp;
 
 	yy_current_state = yy_start;
-	yy_state_ptr = yy_state_buf;
-	*yy_state_ptr++ = yy_current_state;
 
 	for ( yy_cp = yytext_ptr + YY_MORE_ADJ; yy_cp < yy_c_buf_p; ++yy_cp )
 		{
 		register YY_CHAR yy_c = (*yy_cp ? yy_ec[YY_SC_TO_UI(*yy_cp)] : 1);
+		if ( yy_accept[yy_current_state] )
+			{
+			yy_last_accepting_state = yy_current_state;
+			yy_last_accepting_cpos = yy_cp;
+			}
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
@@ -1028,7 +1006,6 @@ static yy_state_type yy_get_previous_state()
 				yy_c = yy_meta[(unsigned int) yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
-		*yy_state_ptr++ = yy_current_state;
 		}
 
 	return yy_current_state;
@@ -1049,8 +1026,14 @@ yy_state_type yy_current_state;
 #endif
 	{
 	register int yy_is_jam;
+	register char *yy_cp = yy_c_buf_p;
 
 	register YY_CHAR yy_c = 1;
+	if ( yy_accept[yy_current_state] )
+		{
+		yy_last_accepting_state = yy_current_state;
+		yy_last_accepting_cpos = yy_cp;
+		}
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
@@ -1059,8 +1042,6 @@ yy_state_type yy_current_state;
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
 	yy_is_jam = (yy_current_state == 25);
-	if ( ! yy_is_jam )
-		*yy_state_ptr++ = yy_current_state;
 
 	return yy_is_jam ? 0 : yy_current_state;
 	}
@@ -1103,8 +1084,6 @@ register char *yy_bp;
 
 	*--yy_cp = (char) c;
 
-	if ( c == '\n' )
-		--yylineno;
 
 	yytext_ptr = yy_bp;
 	yy_hold_char = *yy_cp;
@@ -1181,8 +1160,6 @@ static int input()
 	*yy_c_buf_p = '\0';	/* preserve yytext */
 	yy_hold_char = *++yy_c_buf_p;
 
-	if ( c == '\n' )
-		++yylineno;
 
 	return c;
 	}
@@ -1619,4 +1596,9 @@ int main()
 	return 0;
 	}
 #endif
-#line 40 "calc.l"
+#line 39 "calc.l"
+
+
+int yywrap(void) {
+    return 1;
+}
