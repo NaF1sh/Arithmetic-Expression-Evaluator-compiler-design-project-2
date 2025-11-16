@@ -6,7 +6,6 @@
    int flag = 0;
    int div_by_zero = 0;
    
-   /* forward declarations so gcc is happy */
    int yylex(void);
    void yyerror(const char *s);
 %}
@@ -107,9 +106,6 @@ Primary
 int main(void) {
     printf(
         "\nArithmetic Expression Evaluator\n"
-        "Supports: +, -, *, /, %%, (), unary minus\n"
-        "Comparisons: <, <=, >, >=, ==, !=\n"
-        "Enter expressions (one per line, Ctrl+D to exit):\n\n"
     );
     
     yyparse();

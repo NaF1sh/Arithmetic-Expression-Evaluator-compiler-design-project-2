@@ -287,8 +287,8 @@ static void yy_fatal_error YY_PROTO(( yyconst char msg[] ));
 static yyconst short int yy_accept[26] =
     {   0,
         0,    0,   19,   17,    2,    3,   17,    8,    9,   10,
-        6,    4,    5,    7,    1,   11,   17,   13,    2,   16,
-        1,   12,   15,   14,    0
+        6,    4,    5,    7,    1,   12,   17,   14,    2,   16,
+        1,   11,   15,   13,    0
     } ;
 
 static yyconst int yy_ec[256] =
@@ -370,9 +370,9 @@ static char *yy_last_accepting_cpos;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "calc.l"
+#line 1 "Calc.l"
 #define INITIAL 0
-#line 2 "calc.l"
+#line 2 "Calc.l"
    /* Definition section */
    #include <stdio.h>
    #include <stdlib.h>
@@ -528,7 +528,7 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 8 "calc.l"
+#line 8 "Calc.l"
 
 
 #line 535 "lex.yy.c"
@@ -616,7 +616,7 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 10 "calc.l"
+#line 10 "Calc.l"
 {
          yylval = atoi(yytext);
          return NUMBER;
@@ -624,82 +624,82 @@ YY_RULE_SETUP
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 15 "calc.l"
+#line 15 "Calc.l"
 ;
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 17 "calc.l"
+#line 17 "Calc.l"
 return NEWLINE;
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 19 "calc.l"
+#line 19 "Calc.l"
 return PLUS;
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 20 "calc.l"
+#line 20 "Calc.l"
 return MINUS;
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 21 "calc.l"
+#line 21 "Calc.l"
 return TIMES;
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 22 "calc.l"
+#line 22 "Calc.l"
 return DIVIDE;
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 23 "calc.l"
+#line 23 "Calc.l"
 return MODULO;
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 24 "calc.l"
+#line 24 "Calc.l"
 return LPAREN;
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 25 "calc.l"
+#line 25 "Calc.l"
 return RPAREN;
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 27 "calc.l"
-return LT;
+#line 27 "Calc.l"
+return LE;    
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 28 "calc.l"
-return LE;
+#line 28 "Calc.l"
+return LT;
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 29 "calc.l"
-return GT;
+#line 29 "Calc.l"
+return GE;    
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 30 "calc.l"
-return GE;
+#line 30 "Calc.l"
+return GT;
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 31 "calc.l"
+#line 31 "Calc.l"
 return EQ;
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 32 "calc.l"
+#line 32 "Calc.l"
 return NE;
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 34 "calc.l"
+#line 34 "Calc.l"
 {
     printf("Error: unknown character '%s'\n", yytext);
     return UNKNOWN;
@@ -707,7 +707,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 39 "calc.l"
+#line 39 "Calc.l"
 ECHO;
 	YY_BREAK
 #line 714 "lex.yy.c"
@@ -1596,7 +1596,7 @@ int main()
 	return 0;
 	}
 #endif
-#line 39 "calc.l"
+#line 39 "Calc.l"
 
 
 int yywrap(void) {

@@ -24,10 +24,10 @@
 "("  return LPAREN;
 ")"  return RPAREN;
 
+"<=" return LE;    
 "<"  return LT;
-"<=" return LE;
+">=" return GE;    
 ">"  return GT;
-">=" return GE;
 "==" return EQ;
 "!=" return NE;
 

@@ -68,7 +68,7 @@
 /* Copy the first part of user declarations.  */
 
 /* Line 189 of yacc.c  */
-#line 1 "calc.y"
+#line 1 "Calc.y"
 
    /* Definition section */
    #include <stdio.h>
@@ -77,13 +77,12 @@
    int flag = 0;
    int div_by_zero = 0;
    
-   /* forward declarations so gcc is happy */
    int yylex(void);
    void yyerror(const char *s);
 
 
 /* Line 189 of yacc.c  */
-#line 87 "y.tab.c"
+#line 86 "y.tab.c"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -163,7 +162,7 @@ typedef int YYSTYPE;
 
 
 /* Line 264 of yacc.c  */
-#line 167 "y.tab.c"
+#line 166 "y.tab.c"
 
 #ifdef short
 # undef short
@@ -455,9 +454,9 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    29,    29,    31,    35,    38,    45,    53,    57,    58,
-      59,    60,    61,    62,    63,    67,    68,    69,    73,    74,
-      83,    92,    96,    97,   101,   102
+       0,    28,    28,    30,    34,    37,    44,    52,    56,    57,
+      58,    59,    60,    61,    62,    66,    67,    68,    72,    73,
+      82,    91,    95,    96,   100,   101
 };
 #endif
 
@@ -1378,7 +1377,7 @@ yyreduce:
         case 4:
 
 /* Line 1455 of yacc.c  */
-#line 35 "calc.y"
+#line 34 "Calc.y"
     {
         /* Empty line, do nothing */
       }
@@ -1387,7 +1386,7 @@ yyreduce:
   case 5:
 
 /* Line 1455 of yacc.c  */
-#line 38 "calc.y"
+#line 37 "Calc.y"
     {
         if (!div_by_zero) {
             printf("%d\n", (yyvsp[(1) - (2)]));
@@ -1400,7 +1399,7 @@ yyreduce:
   case 6:
 
 /* Line 1455 of yacc.c  */
-#line 45 "calc.y"
+#line 44 "Calc.y"
     {
         yyerrok;
         div_by_zero = 0;
@@ -1411,91 +1410,91 @@ yyreduce:
   case 7:
 
 /* Line 1455 of yacc.c  */
-#line 53 "calc.y"
+#line 52 "Calc.y"
     { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
   case 8:
 
 /* Line 1455 of yacc.c  */
-#line 57 "calc.y"
+#line 56 "Calc.y"
     { (yyval) = ((yyvsp[(1) - (3)]) < (yyvsp[(3) - (3)])) ? 1 : 0; }
     break;
 
   case 9:
 
 /* Line 1455 of yacc.c  */
-#line 58 "calc.y"
+#line 57 "Calc.y"
     { (yyval) = ((yyvsp[(1) - (3)]) <= (yyvsp[(3) - (3)])) ? 1 : 0; }
     break;
 
   case 10:
 
 /* Line 1455 of yacc.c  */
-#line 59 "calc.y"
+#line 58 "Calc.y"
     { (yyval) = ((yyvsp[(1) - (3)]) > (yyvsp[(3) - (3)])) ? 1 : 0; }
     break;
 
   case 11:
 
 /* Line 1455 of yacc.c  */
-#line 60 "calc.y"
+#line 59 "Calc.y"
     { (yyval) = ((yyvsp[(1) - (3)]) >= (yyvsp[(3) - (3)])) ? 1 : 0; }
     break;
 
   case 12:
 
 /* Line 1455 of yacc.c  */
-#line 61 "calc.y"
+#line 60 "Calc.y"
     { (yyval) = ((yyvsp[(1) - (3)]) == (yyvsp[(3) - (3)])) ? 1 : 0; }
     break;
 
   case 13:
 
 /* Line 1455 of yacc.c  */
-#line 62 "calc.y"
+#line 61 "Calc.y"
     { (yyval) = ((yyvsp[(1) - (3)]) != (yyvsp[(3) - (3)])) ? 1 : 0; }
     break;
 
   case 14:
 
 /* Line 1455 of yacc.c  */
-#line 63 "calc.y"
+#line 62 "Calc.y"
     { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
   case 15:
 
 /* Line 1455 of yacc.c  */
-#line 67 "calc.y"
+#line 66 "Calc.y"
     { (yyval) = (yyvsp[(1) - (3)]) + (yyvsp[(3) - (3)]); }
     break;
 
   case 16:
 
 /* Line 1455 of yacc.c  */
-#line 68 "calc.y"
+#line 67 "Calc.y"
     { (yyval) = (yyvsp[(1) - (3)]) - (yyvsp[(3) - (3)]); }
     break;
 
   case 17:
 
 /* Line 1455 of yacc.c  */
-#line 69 "calc.y"
+#line 68 "Calc.y"
     { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
   case 18:
 
 /* Line 1455 of yacc.c  */
-#line 73 "calc.y"
+#line 72 "Calc.y"
     { (yyval) = (yyvsp[(1) - (3)]) * (yyvsp[(3) - (3)]); }
     break;
 
   case 19:
 
 /* Line 1455 of yacc.c  */
-#line 74 "calc.y"
+#line 73 "Calc.y"
     {
                               if ((yyvsp[(3) - (3)]) == 0) {
                                   printf("Error: division by zero\n");
@@ -1510,7 +1509,7 @@ yyreduce:
   case 20:
 
 /* Line 1455 of yacc.c  */
-#line 83 "calc.y"
+#line 82 "Calc.y"
     {
                               if ((yyvsp[(3) - (3)]) == 0) {
                                   printf("Error: division by zero\n");
@@ -1525,42 +1524,42 @@ yyreduce:
   case 21:
 
 /* Line 1455 of yacc.c  */
-#line 92 "calc.y"
+#line 91 "Calc.y"
     { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
   case 22:
 
 /* Line 1455 of yacc.c  */
-#line 96 "calc.y"
+#line 95 "Calc.y"
     { (yyval) = -(yyvsp[(2) - (2)]); }
     break;
 
   case 23:
 
 /* Line 1455 of yacc.c  */
-#line 97 "calc.y"
+#line 96 "Calc.y"
     { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
   case 24:
 
 /* Line 1455 of yacc.c  */
-#line 101 "calc.y"
+#line 100 "Calc.y"
     { (yyval) = (yyvsp[(2) - (3)]); }
     break;
 
   case 25:
 
 /* Line 1455 of yacc.c  */
-#line 102 "calc.y"
+#line 101 "Calc.y"
     { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
 
 
 /* Line 1455 of yacc.c  */
-#line 1564 "y.tab.c"
+#line 1563 "y.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1772,15 +1771,12 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 105 "calc.y"
+#line 104 "Calc.y"
 
 
 int main(void) {
     printf(
         "\nArithmetic Expression Evaluator\n"
-        "Supports: +, -, *, /, %%, (), unary minus\n"
-        "Comparisons: <, <=, >, >=, ==, !=\n"
-        "Enter expressions (one per line, Ctrl+D to exit):\n\n"
     );
     
     yyparse();
